@@ -9,7 +9,7 @@ const Registration = () => {
 
   useEffect(() => {
     if (user) {
-      navigate("/check-member");
+      navigate("/dashboard");
     }
   }, []);
 
@@ -26,6 +26,31 @@ const Registration = () => {
     }
     const userInfo = { name, email, password1, password2 };
     registerUser(userInfo);
+
+    // Creating a publisher
+    fetch("http://127.0.0.1:3000/publishers", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name,
+        username: name,
+        email: email,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Success:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   useEffect(() => {

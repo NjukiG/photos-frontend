@@ -9,8 +9,10 @@ import NavBar from "./components/Navbar";
 import PublishersPage from "./components/PublishersPage";
 import Photos from "./components/PhotosPage";
 import Albums from "./components/AlbumsPage";
+import { useEffect, useState } from "react";
 
 function App() {
+  
   return (
     <div>
       <NavBar />
