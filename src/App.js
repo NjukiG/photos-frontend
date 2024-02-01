@@ -10,9 +10,22 @@ import PublishersPage from "./components/PublishersPage";
 import Photos from "./components/PhotosPage";
 import Albums from "./components/AlbumsPage";
 import { useEffect, useState } from "react";
+import { useAuth } from "./utils/AuthContext";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
-  
+  const { user, loginUser } = useAuth();
+  // const [publishers, setPublishers] = useState([]);
+
+  // useEffect(() => {
+  //   fetch("http://127.0.0.1:3000/publishers")
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data);
+  //       setPublishers(data);
+  //     });
+  // }, []);
+
   return (
     <div>
       <NavBar />
@@ -25,6 +38,7 @@ function App() {
           <Route path="/publishers" element={<PublishersPage />} />
           <Route path="/albums" element={<Albums />} />
           <Route path="/photos" element={<Photos />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </div>
