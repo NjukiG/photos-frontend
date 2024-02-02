@@ -1,17 +1,17 @@
 import "./App.css";
 import Landing from "./components/Landing";
-import Login from "./components/Login";
-import Registration from "./components/Register";
+import Login from "./pages/Login";
+import Registration from "./pages/Register";
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./pages/Dashboard";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import NavBar from "./components/Navbar";
-import PublishersPage from "./components/PublishersPage";
-import Photos from "./components/PhotosPage";
-import Albums from "./components/AlbumsPage";
+import PublishersPage from "./pages/PublishersPage";
+import Photos from "./pages/PhotosPage";
+import Albums from "./pages/AlbumsPage";
 import { useEffect, useState } from "react";
 import { useAuth } from "./utils/AuthContext";
-import ErrorPage from "./components/ErrorPage";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   const { user, loginUser } = useAuth();
