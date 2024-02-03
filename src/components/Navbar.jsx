@@ -11,7 +11,7 @@ const NavBar = () => {
             <div className="flex-1 md:flex md:items-center md:gap-12">
               <a
                 className="block text-teal-600"
-                href={user ? "/dashboard" : "/"}
+                href={user ? "/" : "/"}
               >
                 <span className="sr-only">Home</span>
                 <svg
