@@ -13,6 +13,8 @@ import { useEffect, useState } from "react";
 import { useAuth } from "./utils/AuthContext";
 import ErrorPage from "./pages/ErrorPage";
 import PublisherDetails from "./pages/PublisherDetails";
+import AlbumDetails from "./pages/AlbumDetails";
+import PhotoDetails from "./pages/PhotoDetails";
 
 function App() {
   const { user, loginUser } = useAuth();
@@ -40,7 +42,10 @@ function App() {
           <Route path="/publishers/:id" element={<PublisherDetails />} />
 
           <Route path="/albums" element={<Albums />} />
+          <Route path="/albums/:id" element={<AlbumDetails />} />
+
           <Route path="/photos" element={<Photos />} />
+          <Route path="/photos/:id" element={<PhotoDetails />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

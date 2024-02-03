@@ -16,13 +16,6 @@ const PublisherDetails = ({ match }) => {
         setAlbums(data.albums);
       })
       .catch((error) => console.error("Error fetching publisher:", error));
-
-    // fetch(`http://127.0.0.1:3000/publishers/${id}/albums`)
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     setAlbums(data);
-    //   })
-    //   .catch((error) => console.error("Error fetching albums:", error));
   }, []);
 
   if (!publisher) return <div>Loading...</div>;
@@ -45,8 +38,11 @@ const PublisherDetails = ({ match }) => {
       </header>
 
       <ul>
-        {albums.map((album) => (
-          <article key={album.id} className="rounded-xl border-2 border-gray-100 bg-white">
+        {albums && albums.map((album) => (
+          <article
+            key={album.id}
+            className="rounded-xl border-2 border-gray-100 bg-white"
+          >
             <div className="flex items-start gap-4 p-4 sm:p-6 lg:p-8">
               <a href="#" className="block shrink-0">
                 <img
@@ -87,7 +83,7 @@ const PublisherDetails = ({ match }) => {
                 className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 rounded"
                 style={{ marginLeft: 10 }}
               >
-                <Link to={`/publishers`}>View Details</Link>
+                <Link to={`/albums/${publisher.id}`}>View Details</Link>
               </button>
             </div>
           </article>
