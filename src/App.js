@@ -6,7 +6,6 @@ import { Route, Routes } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import NavBar from "./components/Navbar";
-import PublishersPage from "./pages/PublishersPage";
 import Photos from "./pages/PhotosPage";
 import Albums from "./pages/AlbumsPage";
 import { useEffect, useState } from "react";
@@ -38,7 +37,6 @@ function App() {
         <Route path="/register" element={<Registration />} />
         <Route element={<PrivateRoutes />}>
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/publishers" element={<PublishersPage />} />
           <Route path="/publishers/:id" element={<PublisherDetails />} />
 
           <Route path="/albums" element={<Albums />} />

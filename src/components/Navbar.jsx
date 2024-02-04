@@ -9,10 +9,7 @@ const NavBar = () => {
         <div className="mx-auto max-w-screen-xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             <div className="flex-1 md:flex md:items-center md:gap-12">
-              <a
-                className="block text-teal-600"
-                href={user ? "/" : "/"}
-              >
+              <a className="block text-teal-600" href={user ? "/" : "/"}>
                 <span className="sr-only">Home</span>
                 <svg
                   className="h-8"
@@ -36,18 +33,9 @@ const NavBar = () => {
                     <li>
                       <a
                         className="text-gray-500 transition hover:text-gray-500/75"
-                        href="/publishers"
-                      >
-                        Publishers
-                      </a>
-                    </li>
-
-                    <li>
-                      <a
-                        className="text-gray-500 transition hover:text-gray-500/75"
                         href="/albums"
                       >
-                        Albums
+                       My Albums
                       </a>
                     </li>
 
@@ -56,7 +44,7 @@ const NavBar = () => {
                         className="text-gray-500 transition hover:text-gray-500/75"
                         href="/photos"
                       >
-                        Photos
+                       My Photos
                       </a>
                     </li>
                   </ul>
