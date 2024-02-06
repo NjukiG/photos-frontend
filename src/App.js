@@ -19,24 +19,24 @@ import Footer from "./pages/Footer";
 
 function App() {
   const { user, loginUser } = useAuth();
-  const [publisherID, setPublisherId] = useState(null);
+  // const [publisherID, setPublisherId] = useState(null);
 
-  useEffect(() => {
-    const fetchAlbums = () => {
-      fetch("http://127.0.0.1:3000/publishers")
-        .then((response) => response.json())
-        .then((data) => {
-          const filteredPublishers = data.filter(
-            (publisher) => publisher.email === user.email
-          );
-          console.log(filteredPublishers[0]);
-          setPublisherId(filteredPublishers[0].id);
-        })
-        .catch((error) => console.error("Error fetching albums:", error));
-    };
+  // useEffect(() => {
+  //   const fetchAlbums = () => {
+  //     fetch("http://127.0.0.1:3000/publishers")
+  //       .then((response) => response.json())
+  //       .then((data) => {
+  //         const filteredPublishers = data.filter(
+  //           (publisher) => publisher.email === user.email
+  //         );
+  //         console.log(filteredPublishers[0]);
+  //         setPublisherId(filteredPublishers[0].id);
+  //       })
+  //       .catch((error) => console.error("Error fetching albums:", error));
+  //   };
 
-    fetchAlbums();
-  }, [user]);
+  //   fetchAlbums();
+  // }, [user]);
 
   return (
     <div>
