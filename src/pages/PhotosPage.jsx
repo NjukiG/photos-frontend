@@ -8,24 +8,6 @@ const Photos = ({ publisherID }) => {
   const [photos, setPhotos] = useState([]);
   const [albumId, setAlbumId] = useState(null);
   const [showPhotoForm, setShowPhotoForm] = useState(false);
-  const [publisherID, setPublisherId] = useState(null);
-
-  useEffect(() => {
-    const fetchAlbums = () => {
-      fetch("http://127.0.0.1:3000/publishers")
-        .then((response) => response.json())
-        .then((data) => {
-          const filteredPublishers = data.filter(
-            (publisher) => publisher.email === user.email
-          );
-          console.log(filteredPublishers[0]);
-          setPublisherId(filteredPublishers[0].id);
-        })
-        .catch((error) => console.error("Error fetching albums:", error));
-    };
-
-    fetchAlbums();
-  }, [user]);
 
   const fetchPhotos = () => {
     fetch("http://127.0.0.1:3000/albums")
@@ -93,7 +75,7 @@ const Photos = ({ publisherID }) => {
             photos={photos}
             albumId={albumId}
             onDeletePhoto={handleDeletePhoto}
-            onUpdatePhoto={handleUpdatePhoto}
+            onUpdatePhoto = {handleUpdatePhoto}
           />
         ) : (
           <div className="text-center">
