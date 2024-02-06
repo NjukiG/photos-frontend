@@ -67,11 +67,12 @@ const Dashboard = () => {
             </div>
 
             <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
-              <button
+              <Link
+                to="/albums"
                 className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-gray-200 bg-white px-5 py-3 text-gray-500 transition hover:text-gray-700 focus:outline-none focus:ring"
                 type="button"
               >
-                <span className="text-sm font-medium"> View Website </span>
+                <span className="text-sm font-medium"> Add an Album </span>
 
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -87,14 +88,15 @@ const Dashboard = () => {
                     d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
                   />
                 </svg>
-              </button>
+              </Link>
 
-              <button
+              <Link
+                to="/photos"
                 className="block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
                 type="button"
               >
-                Create Post
-              </button>
+                Add a Photo
+              </Link>
             </div>
           </div>
         </div>
@@ -122,13 +124,33 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
-              <button
-                type="button"
-                className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 rounded"
-                style={{ marginLeft: 10 }}
+              <a
+                className="group relative inline-flex items-center overflow-hidden rounded bg-indigo-600 px-8 py-3 text-white focus:outline-none focus:ring active:bg-indigo-500"
+                href={`/publishers/${publisher.id}`}
               >
-                <Link to={`/publishers/${publisher.id}`}>View Details</Link>
-              </button>
+                <span className="absolute -end-full transition-all group-hover:end-4">
+                  <svg
+                    className="h-5 w-5 rtl:rotate-180"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
+
+                <span className="text-sm font-medium transition-all group-hover:me-4">
+                  
+                  View Albums
+                </span>
+              </a>
+              {/* HGJB */}
             </div>
           </li>
         ))}
@@ -138,3 +160,13 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
+
+{
+  /* <button
+type="button"
+className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 rounded"
+style={{ marginLeft: 10 }}
+>
+<Link to={`/publishers/${publisher.id}`}>View Details</Link>
+</button> */
+}

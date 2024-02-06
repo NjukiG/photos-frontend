@@ -1,18 +1,24 @@
 import React from "react";
 import PhotoCard from "./PhotoCard";
+import { Link } from "react-router-dom";
+import { useAuth } from "../utils/AuthContext";
 
-const PhotoList = ({ photos }) => {
+const PhotoList = ({ photos, albumId, onDeletePhoto, onUpdatePhoto }) => {
+  const { user } = useAuth();
   return (
-    <div className="container mx-auto px-4">
-      <h3 className="text-3xl font-bold mb-4">A list of all the photos.</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {photos &&
-          photos.map((photo) => (
-            <React.Fragment key={photo.id}>
-              <PhotoCard photo={photo} />
-            </React.Fragment>
-          ))}
-      </div>
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      <h2>{user.name}, these are your photos</h2>
+
+      {photos &&
+        photos.map((photo) => (
+          <PhotoCard
+            key={photo.id}
+            photo={photo}
+            albumId={albumId}
+            onDeletePhoto={onDeletePhoto}
+            onUpdatePhoto={onUpdatePhoto}
+          />
+        ))}
     </div>
   );
 };

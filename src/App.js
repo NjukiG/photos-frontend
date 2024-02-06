@@ -14,19 +14,29 @@ import ErrorPage from "./pages/ErrorPage";
 import PublisherDetails from "./pages/PublisherDetails";
 import AlbumDetails from "./pages/AlbumDetails";
 import PhotoDetails from "./pages/PhotoDetails";
+import UpdatePhotoForm from "./components/UpdatePhotoForm";
+import Footer from "./pages/Footer";
 
 function App() {
   const { user, loginUser } = useAuth();
-  // const [publishers, setPublishers] = useState([]);
+  const [publisherID, setPublisherId] = useState(null);
 
-  // useEffect(() => {
-  //   fetch("http://127.0.0.1:3000/publishers")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data);
-  //       setPublishers(data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    const fetchAlbums = () => {
+      fetch("http://127.0.0.1:3000/publishers")
+        .then((response) => response.json())
+        .then((data) => {
+          const filteredPublishers = data.filter(
+            (publisher) => publisher.email === user.email
+          );
+          console.log(filteredPublishers[0].id);
+          setPublisherId(filteredPublishers[0].id);
+        })
+        .catch((error) => console.error("Error fetching albums:", error));
+    };
+
+    fetchAlbums();
+  }, [user]);
 
   return (
     <div>
@@ -42,11 +52,17 @@ function App() {
           <Route path="/albums" element={<Albums />} />
           <Route path="/albums/:id" element={<AlbumDetails />} />
 
-          <Route path="/photos" element={<Photos />} />
+          <Route
+            path="/photos"
+            element={<Photos publisherID={publisherID} />}
+          />
           <Route path="/photos/:id" element={<PhotoDetails />} />
           <Route path="*" element={<ErrorPage />} />
+
+          <Route path="/update/photos/:id" element={<UpdatePhotoForm />} />
         </Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

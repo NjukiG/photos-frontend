@@ -10,37 +10,39 @@ const Albums = () => {
   const [publisherId, setPublisherId] = useState(null);
   const [showAlbumsForm, setShowAlbumsForm] = useState(false);
 
-  useEffect(() => {
-    const fetchAlbums = () => {
-      fetch("http://127.0.0.1:3000/publishers")
-        .then((response) => response.json())
-        .then((data) => {
-          const filteredPublishers = data.filter(
-            (publisher) => publisher.email === user.email
-          );
-          console.log(filteredPublishers[0].id);
-          setPublisherId(filteredPublishers[0].id);
-          const albumsData = filteredPublishers.flatMap(
-            (publisher) => publisher.albums
-          );
-          console.log(albumsData);
-          setAlbums(albumsData);
-        })
-        .catch((error) => console.error("Error fetching albums:", error));
-    };
+  const fetchAlbums = () => {
+    fetch("http://127.0.0.1:3000/publishers")
+      .then((response) => response.json())
+      .then((data) => {
+        const filteredPublishers = data.filter(
+          (publisher) => publisher.email === user.email
+        );
+        console.log(filteredPublishers[0].id);
+        setPublisherId(filteredPublishers[0].id);
+        const albumsData = filteredPublishers.flatMap(
+          (publisher) => publisher.albums
+        );
+        console.log(albumsData);
+        setAlbums(albumsData);
+      })
+      .catch((error) => console.error("Error fetching albums:", error));
+  };
 
+  useEffect(() => {
     fetchAlbums();
   }, [user]);
 
   const handleAddAlbum = (newAlbum) => {
     const updatedAlbumsArray = [newAlbum, ...albums];
     setAlbums(updatedAlbumsArray);
+    fetchAlbums();
   };
 
   const handleDeleteAlbum = (id) => {
     setAlbums((albums) => {
       return albums.filter((album) => album.id !== id);
     });
+    fetchAlbums();
   };
 
   const handleShowAlbumForm = () => {
@@ -68,7 +70,11 @@ const Albums = () => {
       </h3>
 
       {albums.length ? (
-        <AlbumList albums={albums} onDeleteAlbum={handleDeleteAlbum} />
+        <AlbumList
+          albums={albums}
+          onDeleteAlbum={handleDeleteAlbum}
+          publisherId={publisherId}
+        />
       ) : (
         <div>
           <h1>Sorry, you don't have any albums now.</h1>
