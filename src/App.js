@@ -29,7 +29,7 @@ function App() {
           const filteredPublishers = data.filter(
             (publisher) => publisher.email === user.email
           );
-          console.log(filteredPublishers[0].id);
+          console.log(filteredPublishers[0]);
           setPublisherId(filteredPublishers[0].id);
         })
         .catch((error) => console.error("Error fetching albums:", error));
