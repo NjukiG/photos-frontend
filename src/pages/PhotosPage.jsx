@@ -10,7 +10,7 @@ const Photos = ({ publisherID }) => {
   const [showPhotoForm, setShowPhotoForm] = useState(false);
 
   const fetchPhotos = () => {
-    fetch("http://127.0.0.1:3000/albums")
+    fetch("https://photo-moto-zzzc.onrender.com/albums")
       .then((response) => response.json())
       .then((data) => {
         const filteredAlbums = data.filter(

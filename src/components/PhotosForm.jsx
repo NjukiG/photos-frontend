@@ -7,7 +7,7 @@ const PhotosForm = ({ albumId, onAddPhoto, showPhotoForm }) => {
 
   const handleAddPhoto = (e) => {
     e.preventDefault();
-    fetch(`http://127.0.0.1:3000/photos`, {
+    fetch(`https://photo-moto-zzzc.onrender.com/photos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -10,7 +10,7 @@ const PhotoDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/photos/${id}`)
+    fetch(`https://photo-moto-zzzc.onrender.com/photos/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

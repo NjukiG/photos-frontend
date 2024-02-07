@@ -6,7 +6,7 @@ const AlbumsForm = ({ onAddAlbum, publisherId }) => {
 
   const handleAddAlbum = (e) => {
     e.preventDefault();
-    fetch("http://127.0.0.1:3000/albums", {
+    fetch("https://photo-moto-zzzc.onrender.com/albums", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

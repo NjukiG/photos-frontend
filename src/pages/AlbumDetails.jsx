@@ -7,7 +7,7 @@ const AlbumDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`http://127.0.0.1:3000/albums/${id}`)
+    fetch(`https://photo-moto-zzzc.onrender.com/albums/${id}`)
       .then((response) => response.json())
       .then((data) => {
         setAlbum(data);

@@ -13,7 +13,7 @@ const UpdatePhotoForm = () => {
   });
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/photos/" + id)
+    fetch("https://photo-moto-zzzc.onrender.com/photos/" + id)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -37,7 +37,7 @@ const UpdatePhotoForm = () => {
   const handleUpdatePhoto = (e) => {
     e.preventDefault();
 
-    fetch(`http://127.0.0.1:3000/photos/${id}`, {
+    fetch(`https://photo-moto-zzzc.onrender.com/photos/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

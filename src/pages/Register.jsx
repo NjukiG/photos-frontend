@@ -28,7 +28,7 @@ const Registration = () => {
     registerUser(userInfo);
 
     // Creating a publisher
-    fetch("http://127.0.0.1:3000/publishers", {
+    fetch("https://photo-moto-zzzc.onrender.com/publishers", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

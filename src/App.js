@@ -23,7 +23,7 @@ function App() {
 
   useEffect(() => {
     const fetchAlbums = () => {
-      fetch("http://127.0.0.1:3000/publishers")
+      fetch("https://photo-moto-zzzc.onrender.com/publishers")
         .then((response) => response.json())
         .then((data) => {
           const filteredPublishers = data.filter(

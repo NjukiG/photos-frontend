@@ -5,7 +5,7 @@ const AlbumCard = ({ album, onDeleteAlbum, publisherId }) => {
   console.log(album);
 
   function deleteAlbum() {
-    fetch(`http://127.0.0.1:3000/albums/${album.id}`, {
+    fetch(`https://photo-moto-zzzc.onrender.com/albums/${album.id}`, {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

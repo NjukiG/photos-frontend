@@ -3,7 +3,7 @@ import { Link, NavLink, useParams } from "react-router-dom";
 
 const PhotoCard = ({ photo, albumId, onDeletePhoto, onUpdatePhoto }) => {
   function deletePhoto() {
-    fetch(`http://127.0.0.1:3000/photos/${photo.id}`, {
+    fetch(`https://photo-moto-zzzc.onrender.com/photos/${photo.id}`, {
       method: "DELETE",
     }).then((r) => {
       if (r.ok) {

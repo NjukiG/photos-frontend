@@ -20,7 +20,7 @@ const Dashboard = () => {
   const [selectedPublisherId, setSelectedPublisherId] = useState(null);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:3000/publishers")
+    fetch("https://photo-moto-zzzc.onrender.com/publishers")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -31,7 +31,7 @@ const Dashboard = () => {
 
   // Function to fetch albums by publisher ID
   const fetchAlbumsByPublisher = (id) => {
-    fetch(`http://127.0.0.1:3000/publishers/${id}`)
+    fetch(`https://photo-moto-zzzc.onrender.com/publishers/${id}`)
       .then((response) => response.json())
       .then((data) => {
         console.log(data.albums);
@@ -161,12 +161,3 @@ const Dashboard = () => {
 
 export default Dashboard;
 
-{
-  /* <button
-type="button"
-className="bg-gray-200 hover:bg-gray-400 text-gray-900 font-bold py-2 px-4 rounded"
-style={{ marginLeft: 10 }}
->
-<Link to={`/publishers/${publisher.id}`}>View Details</Link>
-</button> */
-}
