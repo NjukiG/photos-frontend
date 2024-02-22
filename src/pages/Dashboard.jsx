@@ -64,6 +64,9 @@ const Dashboard = () => {
               <p className="mt-1.5 text-sm text-gray-600">
                 Select details of publishers that interest you!
               </p>
+              <p className="mt-1.5 text-sm text-gray-600">
+                Your User ID is {user.id}
+              </p>
             </div>
 
             <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
@@ -146,7 +149,6 @@ const Dashboard = () => {
                 </span>
 
                 <span className="text-sm font-medium transition-all group-hover:me-4">
-                  
                   View Albums
                 </span>
               </a>
@@ -160,4 +162,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
