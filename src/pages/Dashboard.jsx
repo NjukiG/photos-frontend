@@ -64,9 +64,7 @@ const Dashboard = () => {
               <p className="mt-1.5 text-sm text-gray-600">
                 Select details of publishers that interest you!
               </p>
-              <p className="mt-1.5 text-sm text-gray-600">
-                Your User ID is {user.id}
-              </p>
+             
             </div>
 
             <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
@@ -119,7 +117,7 @@ const Dashboard = () => {
               />
               <div className="min-w-0 flex-auto">
                 <p className="text-sm font-semibold leading-6 text-gray-900">
-                  {publisher.name}
+                  {publisher.name} {publisher.id}
                 </p>
                 <p className="mt-1 truncate text-xs leading-5 text-gray-500">
                   {publisher.email}

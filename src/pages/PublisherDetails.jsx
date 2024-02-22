@@ -71,7 +71,7 @@ const PublisherDetails = ({ match }) => {
                         href="/dashboard"
                         className="font-medium underline hover:text-gray-700"
                       >
-                        {publisher.name}
+                        {publisher.name} {album.id}
                       </a>
                     </p>
                   </div>

@@ -33,6 +33,14 @@ const NavBar = () => {
                     <li>
                       <a
                         className="text-gray-500 transition hover:text-gray-500/75"
+                        href="/dashboard"
+                      >
+                       Dashboard
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        className="text-gray-500 transition hover:text-gray-500/75"
                         href="/albums"
                       >
                        My Albums
